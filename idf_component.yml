@@ -1,0 +1,18 @@
+name: "beshell-ota"
+version: "1.0.0"
+description: "OTA implements for BeShell"
+keywords:
+  - "JavaScript"
+  - "QuickJS"
+  - "OTA"
+  - "Firmware"
+authors:
+  - "alee201@163.com"
+homepage: "https://beshell.become.cool"
+url: "https://beshell.become.cool"
+repository: "https://github.com/become-cool/beshell-ota.git"
+license: "LGPL"
+dependencies:
+  "become-cool/beshell":
+    version: ">=1.0.8"
+
