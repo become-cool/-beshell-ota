@@ -1,0 +1,45 @@
+{
+    "BeShell Native Module": {
+        "prefix": "beshell-module",
+        "description": "Create a BeShell native module",
+        "body": [
+            "#include <beshell/NativeModule.hpp>",
+            "",
+            "using namespace be ;",
+            "",
+            "class ${1:MyModule} : public NativeModule {",
+            "public:",
+            "    ${1:MyModule}(JSContext * ctx, const char * name)",
+            "        : NativeModule(ctx, name, 0) {",
+            "        ",
+            "    }",
+            "",
+            "    static void use(BeShell * beshell) {",
+            "        beshell->use<${1:MyModule}>() ;",
+            "    }",
+            "",
+            "    void exports(JSContext *ctx) {",
+            "        $0",
+            "    }",
+            "} ;",
+            ""
+        ]
+    },
+    "OTA Update": {
+        "prefix": "ota-start",
+        "description": "Start OTA update",
+        "body": [
+            "await ota.start({",
+            "    bin: {",
+            "        url: \"${1:http://server/firmware.bin}\",",
+            "        size: ${2:1024000},",
+            "        checksum: ${3:0x12345678}",
+            "    },",
+            "    onProgress: (type, total, wrote) => {",
+            "        let percent = Math.round(wrote * 100 / total)",
+            "        console.log(`Progress: \${percent}%`)",
+            "    }",
+            "})"
+        ]
+    }
+}

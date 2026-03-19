@@ -1,0 +1,4 @@
+dependencies:
+  become-cool/beshell: '>=1.0.8'
+  become-cool/beshell-ota: '>=1.0.0'
+  become-cool/beshell-mg: '>=1.1.0'
