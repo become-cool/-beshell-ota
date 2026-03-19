@@ -466,20 +466,24 @@ namespace be{
      * @component beshell-ota
      * @function start
      * @param opt:object 升级选项
-     * @param opt.bin:object 应用程序固件选项
-     * @param opt.bin.url:string 固件下载 URL
-     * @param opt.bin.size:number 固件大小（字节）
-     * @param opt.bin.checksum:number 固件校验和（可选）
-     * @param opt.bin.partitions:Array\<string\> 目标分区列表（可选，自动检测）
-     * @param opt.fs:object 文件系统固件选项
-     * @param opt.fs.url:string 文件系统下载 URL
-     * @param opt.fs.size:number 文件系统大小（字节）
-     * @param opt.fs.checksum:number 文件系统校验和（可选）
-     * @param opt.fs.partitions:Array\<string\> 目标分区列表（可选，自动检测）
-     * @param opt.onProgress:function 进度回调函数，参数为 (type, total, wrote)
-     * @param opt.onComplete:function 完成回调函数，参数为 (type, error)
-     * @param opt.downloader:function 自定义下载器函数
-     * @param opt.step:number 进度打印步长（百分比，默认 5）
+     *     {
+     *         bin?: {
+     *             url: string,         // 固件下载 URL
+     *             size: number,        // 固件大小（字节）
+     *             checksum?: number,   // 固件校验和
+     *             partitions?: string[] // 目标分区列表，自动检测
+     *         },
+     *         fs?: {
+     *             url: string,         // 文件系统下载 URL
+     *             size: number,        // 文件系统大小（字节）
+     *             checksum?: number,   // 文件系统校验和
+     *             partitions?: string[] // 目标分区列表，自动检测
+     *         },
+     *         onProgress?: (type: string, total: number, wrote: number) => void, // 进度回调
+     *         onComplete?: (type: string, error: Error | null) => void, // 完成回调
+     *         downloader?: (url: string, localpath: string, callback: Function) => Promise<void>, // 自定义下载器
+     *         step?: number          // 进度打印步长（百分比），默认 5
+     *     }
      * @return Promise\<undefined\>
      * @throws URL 未指定
      * @throws 未找到可用的 OTA 分区
