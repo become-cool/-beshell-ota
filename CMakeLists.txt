@@ -3,10 +3,9 @@ cmake_minimum_required(VERSION 3.24)
 
 # 源码目录
 file(GLOB_RECURSE src_beshell_ota
-        src/beshell-ota/*.c
-        src/beshell-ota/*.cpp
+        src/beshell/ota/*.c
+        src/beshell/ota/*.cpp
     )
-
 
 
 idf_component_register(
@@ -24,7 +23,7 @@ idf_component_register(
             esp_https_ota
 )
 
-target_include_directories(${COMPONENT_LIB} PRIVATE src/beshell-ota)
+target_include_directories(${COMPONENT_LIB} PRIVATE src/beshell/ota)
 
 set(CMAKE_CXX_STANDARD 11)
 

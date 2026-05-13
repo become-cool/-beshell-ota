@@ -1,5 +1,5 @@
 name: "beshell-ota"
-version: "1.0.0"
+version: "1.0.1"
 description: "OTA implements for BeShell"
 keywords:
   - "JavaScript"
@@ -14,5 +14,5 @@ repository: "https://github.com/become-cool/beshell-ota.git"
 license: "LGPL"
 dependencies:
   "become-cool/beshell":
-    version: ">=1.0.8"
+    version: ">=1.0.11"
 
