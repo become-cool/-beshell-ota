@@ -3,7 +3,7 @@
 #include <beshell/BeShell.hpp>
 #include <beshell/NativeModule.hpp>
 
-namespace be {
+namespace be::ota {
 
     class OTA: public be::EventModule {
     public:
@@ -12,7 +12,7 @@ namespace be {
         
         static void use(be::BeShell * beshell) ;
 
-        static const char * whichFS(const char * defaultPartName="fsroot_0") ;
+        static const char * whichFS(const char * defaultPartName="js_0") ;
     
         virtual void exports(JSContext *ctx) ;
 

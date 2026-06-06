@@ -39,7 +39,11 @@ function downloadFirmware(p, opt, type, downloader, onProgress, onComplete, step
                 // 计算可写入的最大16字节倍数
                 let writeLen = Math.floor(merged.length / 16) * 16;
                 if (writeLen > 0) {
-                    p.write(writer, merged.slice(0, writeLen).buffer);
+                    let writeBuffer = merged.slice(0, writeLen).buffer
+                    if(ota.decryptor) {
+                        ota.decryptor(writeBuffer)
+                    }
+                    p.write(writer, writeBuffer);
                     writer += writeLen;
                 }
                 // 剩余部分缓存

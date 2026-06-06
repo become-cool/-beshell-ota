@@ -97,7 +97,7 @@ typedef struct OTAEvent {
  */
 
 
-namespace be{
+namespace be::ota {
 
     char const * const OTA::name = "ota" ;
 
@@ -109,6 +109,7 @@ namespace be{
         exportName("start") ;
         exportName("rollback") ;
         exportName("commit") ;
+        exportName("decryptor") ;
 
         EXPORT_FUNCTION(getBootPartition)
         EXPORT_FUNCTION(setBootPartition)
